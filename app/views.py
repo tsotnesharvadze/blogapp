@@ -8,7 +8,7 @@ def index(request):
 	postebis_sia=Post.objects.all()
 
 
-	return render(request,'app/index.html',{"postebis_sia":postebis_sia})
+	return render(request,'app/new.html',{"postebis_sia":postebis_sia})
 
 
 def srulad(request,posti_id):
