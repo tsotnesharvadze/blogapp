@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+</head>
+<body>
+
+{% if postebis_sia %}
+	<ul>
+	{% for object in postebis_sia %}
+		<p>{{object.postis_satauri}}</p>
+		<p>{{object.get_short_desc}}</p>
+		<img src="{{object.surati.url}}" style="width:304px;height:228px;">
+
+		<a type="button" href="{% url 'app:srulad' object.id %}" >სრულად</a>
+	{% endfor %}
+	</ul>
+	
+
+{% else %}
+	<p>ბლოგი მიუწვდომელია</p>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: blue;}
+p    {color: red;}
+</style>
+</head>
+<body>
+
+	<p>{{posti.postis_satauri}}</p>
+	<img src="{{posti.surati.url}}" alt="some_text" style="width:width;height:height;">
+
+	<p>{{posti.postis_contenti}}</p>
+
+	<p>{{posti.sheqmnis_dro}}</p>
+	{% for i in posti.comment_set.all %}
+		<p>{{i}}</p>
+	{% endfor %} 
+
+
+ <form action="" method="POST">
+ {% csrf_token %}
+	<label for="new_comment">ახალი კომენტარი :</label>
+	<input id="new_comment" type="text" name="new_comment" maxlength="100" value ="{{ form.komenari}}"required />
+	<input type="submit" value="OK">
+</form>
+	
+</body>
+</html>

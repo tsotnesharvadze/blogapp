@@ -7,6 +7,10 @@ class Post(models.Model):
 	sheqmnis_dro=models.DateTimeField('შექმნის დრო')
 	surati=models.ImageField(upload_to='app')
 	ganaxlebis_dro=models.DateTimeField('განახლების დრო')
+
+	def get_short_desc(self):
+		return self.postis_contenti[:10]+" . . ."
+
 	def __str__(self):
 		return self.postis_satauri
 

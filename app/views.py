@@ -1,13 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post 
+from .forms import CommentForm
+
 # Create your views here.
 def index(request):
-	return HttpResponse("zdarova")
+	postebis_sia=Post.objects.all()
 
-def posti(request,posti_id):
-	return HttpResponse("პიროვნება : {}".format(Post.objects.get(pk=posti_id)))
+
+	return render(request,'app/index.html',{"postebis_sia":postebis_sia})
 
 
 def srulad(request,posti_id):
-	return HttpResponse(Post.objects.all()[int(posti_id)-1].postis_contenti)
+	form=CommentForm()
+	posti_srulad=Post.objects.get(pk=posti_id)
+	if request.method=="POST":
+		posti_srulad.comment_set.create(
+			komentari=request.POST.get("new_comment"))
+	return render(request,'app/srulad.html',{"posti":posti_srulad,"form":form})
+
+
