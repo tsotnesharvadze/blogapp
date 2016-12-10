@@ -107,25 +107,26 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Footer -->
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-  <button class="w3-btn w3-disabled w3-padding-large w3-margin-bottom">წინ </button>
-  <button class="w3-btn w3-padding-large w3-margin-bottom">შემდეგი »</button>
-  <p>Powered by <a href="https://www.facebook.com/tsotnesharvadze" target="_blank">ts.sharvadze</a></p>
-
-  <div class="pagination">
+    <div class="pagination">
       <span class="step-links">
           {% if contacts.has_previous %}
-              <a href="?page={{ contacts.previous_page_number }}">previous</a>
+              <a class="w3-btn w3-padding-large w3-margin-bottom" href="?page={{ contacts.previous_page_number }}">წინ </a>
           {% endif %}
 
           <span class="current">
-              Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+              გვერდი: {{ contacts.number }} / {{ contacts.paginator.num_pages }} .
           </span>
 
           {% if contacts.has_next %}
-              <a href="?page={{ contacts.next_page_number }}">next</a>
+              <a class="w3-btn w3-padding-large w3-margin-bottom" href="?page={{ contacts.next_page_number }}">შემდეგი »</a>
           {% endif %}
       </span>
   </div>
+  <!-- <button class="w3-btn w3-disabled w3-padding-large w3-margin-bottom">წინ </button> -->
+<!--   <button class="w3-btn w3-padding-large w3-margin-bottom">წინ </button>
+  <button class="w3-btn w3-padding-large w3-margin-bottom">შემდეგი »</button> -->
+  <p>Powered by <a href="https://www.facebook.com/tsotnesharvadze" target="_blank">ts.sharvadze</a></p>
+
 </footer>
 
 </body>

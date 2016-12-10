@@ -26,7 +26,8 @@ def index(request):
 	except EmptyPage:
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		contacts = paginator.page(paginator.num_pages)
-
+	page_num=contacts.number
+	postebis_sia=postebis_sia[page_num*2-2:page_num*2]
 	return render(request,'app/new.html',{"postebis_sia":postebis_sia,
 		"popularuli_postebi":popularuli_postebi,"contacts":contacts})
 
