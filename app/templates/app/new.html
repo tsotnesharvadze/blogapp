@@ -71,7 +71,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     {% for i in popularuli_postebi %}
     <ul class="w3-ul w3-hoverable w3-white"><a type="button" href="{% url 'app:srulad' i.id %}">
       <li class="w3-padding-16">
-        <img src="{{i.surati.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <img src="{{i.surati.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px;height: 50px">
         <span class="w3-large">{{i.postis_satauri}}</span><br>
         <span>{{i.get_short_desc}}</span>
       </a>
@@ -110,6 +110,22 @@ and is wrapped around the whole page content, except for the footer in this exam
   <button class="w3-btn w3-disabled w3-padding-large w3-margin-bottom">წინ </button>
   <button class="w3-btn w3-padding-large w3-margin-bottom">შემდეგი »</button>
   <p>Powered by <a href="https://www.facebook.com/tsotnesharvadze" target="_blank">ts.sharvadze</a></p>
+
+  <div class="pagination">
+      <span class="step-links">
+          {% if contacts.has_previous %}
+              <a href="?page={{ contacts.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+              Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+          </span>
+
+          {% if contacts.has_next %}
+              <a href="?page={{ contacts.next_page_number }}">next</a>
+          {% endif %}
+      </span>
+  </div>
 </footer>
 
 </body>
