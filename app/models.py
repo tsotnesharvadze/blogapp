@@ -9,7 +9,14 @@ class Post(models.Model):
 	ganaxlebis_dro=models.DateTimeField('განახლების დრო')
 
 	def get_medium_desc(self):
-		return self.postis_contenti[:200]+" . . ."	
+		k=0
+		text=""
+		for i in self.postis_contenti[:300]:
+			if k%111==0:
+				text+="\n"
+			text+=i
+			k+=1
+		return text+" . . ."	
 
 	def get_short_desc(self):
 		return self.postis_contenti[:10]+" . . ."
