@@ -3,7 +3,8 @@
 <title>ბლოგი</title>
 {% load static %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="{% static 'css/new.css' %}">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
@@ -35,7 +36,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     </div>
 
     <div class="w3-container">
-      <p>{{object.get_short_desc}}</p>
+      <p>{{object.get_medium_desc}}</p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
           <p><a type="button" href="{% url 'app:srulad' object.id %}"  class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>სრულად »</b></a></p>
@@ -65,30 +66,17 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- Posts -->
   <div class="w3-card-2 w3-margin">
     <div class="w3-container w3-padding">
-      <h4>Popular Posts</h4>
+      <h4>პოპულარული პოსტები:</h4>
     </div>
+    {% for i in popularuli_postebi %}
     <ul class="w3-ul w3-hoverable w3-white">
       <li class="w3-padding-16">
-        <img src="/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">Lorem</span><br>
-        <span>Sed mattis nunc</span>
+        <img src="{{i.surati.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">{{i.postis_satauri}}</span><br>
+        <span>{{i.get_short_desc}}</span>
       </li>
-      <li class="w3-padding-16">
-        <img src="/w3images/gondol.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">Ipsum</span><br>
-        <span>Praes tinci sed</span>
-      </li> 
-      <li class="w3-padding-16">
-        <img src="/w3images/skies.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">Dorum</span><br>
-        <span>Ultricies congue</span>
-      </li>   
-      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-        <img src="/w3images/rock.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-        <span class="w3-large">Mingsum</span><br>
-        <span>Lorem ipsum dipsum</span>
-      </li>  
     </ul>
+    {% endfor %}
   </div>
   <hr> 
  

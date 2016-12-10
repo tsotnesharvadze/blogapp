@@ -8,6 +8,9 @@ class Post(models.Model):
 	surati=models.ImageField(upload_to='app')
 	ganaxlebis_dro=models.DateTimeField('განახლების დრო')
 
+	def get_medium_desc(self):
+		return self.postis_contenti[:200]+" . . ."	
+
 	def get_short_desc(self):
 		return self.postis_contenti[:10]+" . . ."
 
