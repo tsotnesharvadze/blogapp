@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Post(models.Model):
-	postis_contenti=models.CharField(max_length=2000)
 	postis_satauri=models.CharField(max_length=50)
+	postis_contenti=models.TextField(max_length=20000)
 	sheqmnis_dro=models.DateTimeField('შექმნის დრო')
 	surati=models.ImageField(upload_to='app')
 	ganaxlebis_dro=models.DateTimeField('განახლების დრო')
