@@ -9,13 +9,13 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def index(request):
 	
 	def my_sort(a):
-		return len(a.comment_set.all())
+		return a.comment_set.count()
 	postebis_sia=Post.objects.all()
 	popularuli_postebi=[i for i in postebis_sia]
 	popularuli_postebi.sort(key=my_sort,reverse=True)
 	popularuli_postebi=popularuli_postebi[:5]
 
-	paginator = Paginator(postebis_sia, 2) # Show 25 contacts per page
+	paginator = Paginator(postebis_sia, 2) # Show 2 contacts per page
 
 	page = request.GET.get('page')
 	try:
