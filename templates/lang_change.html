@@ -1,0 +1,14 @@
+{% extand new.html %}
+{% load i18n %}
+{% block language %}
+<form action="/i18n/setlang/" method="POST" style="float: right; display: inline-block;">
+	<div>
+		<li>
+			<button id="geo" type="submit"> </button>
+		</li>
+		<li>
+			<button id="eng" type="submit"></button>
+		</li>
+	</div>
+</form>
+{% endblock language %}

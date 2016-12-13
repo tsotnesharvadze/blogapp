@@ -1,0 +1,60 @@
+/*.right {
+    float: right !important;
+}
+.langs-switcher {
+    padding-left: 20px;
+    height: 62px;
+    position: relative;
+}
+.langs-switcher li a {
+    display: block;
+    float: left;
+    margin: 2px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-image: url('lang_icons.png');
+}
+.langs-switcher li a.en {
+    background-position: 0 -24px;
+}
+body {
+    line-height: 1;
+    color: #333;
+}
+ol, ul {
+    list-style: none;
+}
+html, body, div, a,  ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}*/
+#geo
+{
+	background: url('georgia.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	width: 20px;
+	height:20px;
+	border: none;
+	cursor: pointer;
+}
+#eng
+{
+	background: url('english.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	width: 20px;
+	height:20px;
+	border: none;
+	cursor: pointer;
+}

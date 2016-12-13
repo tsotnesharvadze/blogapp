@@ -2,7 +2,7 @@
 {% load i18n %}
 <!DOCTYPE html>
 <html>
-<title>{% trans ბლოგი %}</title>
+<title>{% trans "ბლოგი" %}</title>
 {% load static %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{% static 'css/new.css' %}">
@@ -20,9 +20,21 @@ and is wrapped around the whole page content, except for the footer in this exam
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32"> 
   <h1><b>MY BLOG</b></h1>
-  <p>Welcome to the blog of <span class="w3-tag">ცოტნე შარვაძე</span></p>
+  <p>Welcome to the blog of <span class="w3-tag">{% trans "ცოტნე შარვაძე" %}</span></p>
 </header>
-
+      <div style="height: 70px;">
+        <form action="/i18n/setlang/" method="POST" style="float: right; display: inline-block;">
+            {% csrf_token %}
+          <div>
+            <li style="text-decoration: none;list-style: none;">
+              <button id="geo" type="submit" value="ka"  name="language" > </button>
+            </li>
+            <li style="text-decoration: none;list-style: none;">
+              <button id="eng" type="submit" value="en"  name="language" ></button>
+            </li>
+          </div>
+        </form>
+      </div>
 <!-- Grid -->
 <div class="w3-row">
 
@@ -34,17 +46,17 @@ and is wrapped around the whole page content, except for the footer in this exam
     <img src="{{object.surati.url}}" alt="Nature" style="width: 100%; height: 400px;">
     <div class="w3-container w3-padding-8">
       <h3><b>{{object.postis_satauri}}</b></h3>
-      <h5>განთავსების დრო : <span class="w3-opacity">{{ object.sheqmnis_dro }}</span></h5>
+      <h5>{% trans "განთავსების დრო" %} : <span class="w3-opacity">{{ object.sheqmnis_dro }}</span></h5>
     </div>
 
     <div class="w3-container">
       <p>{{object.get_medium_desc}}</p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><a type="button" href="{% url 'app:srulad' object.id %}"  class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>სრულად »</b></a></p>
+          <p><a type="button" href="{% url 'app:srulad' object.id %}"  class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>{% trans "სრულად" %}»</b></a></p>
         </div>
         <div class="w3-col m4 w3-hide-small">
-          <p><span class="w3-padding-large w3-right"><b>კომენტარები  </b> <span class="w3-tag">{{object.comment_set.count}}</span></span></p>
+          <p><span class="w3-padding-large w3-right"><b>{% trans "კომენტარები" %} </b> <span class="w3-tag">{{object.comment_set.count}}</span></span></p>
         </div>
       </div>
     </div>
@@ -53,22 +65,22 @@ and is wrapped around the whole page content, except for the footer in this exam
   {% endfor %}
 <!-- END BLOG ENTRIES -->
 </div>
-
 <!-- Introduction menu -->
 <div class="w3-col l4">
+
   <!-- About Card -->
   <div class="w3-card-2 w3-margin w3-margin-top">
   <img src="{% static 'img/prof.jpg' %}" style="width: 100%; height: 450px;">
     <div class="w3-container w3-white">
-      <h4><b>ცოტნე შარვაძე</b></h4>
-      <p>მე ვარ ცოტნე შარვაძე დავბადე 1997 წლის 23 მარტს,თბილისში.პროფესიით ვარ პროგრამისტი , ამიტომაც მიწევს ბლგის შექმნა თორე ჩემით ამას არ ვიზავდი , ნუ არც მაძალებენ , მომწონს კიდეც .ამდენი იმიტომ ვიბოდიალე რომ დიდი ტექსტი მჭირდებოდა ..</p>
+      <h4><b>{% trans "ცოტნე შარვაძე" %}</b></h4>
+      <p>{% trans "მე ვარ ცოტნე შარვაძე დავბადე 1997 წლის 23 მარტს,თბილისში.პროფესიით ვარ პროგრამისტი , ამიტომაც მიწევს ბლგის შექმნა თორე ჩემით ამას არ ვიზავდი , ნუ არც მაძალებენ , მომწონს კიდეც .ამდენი იმიტომ ვიბოდიალე რომ დიდი ტექსტი მჭირდებოდა .. "%}</p>
     </div>
   </div><hr>
   
   <!-- Posts -->
   <div class="w3-card-2 w3-margin">
     <div class="w3-container w3-padding">
-      <h4>პოპულარული პოსტები:</h4>
+      <h4>{% trans "პოპულარული პოსტები" %}:</h4>
     </div>
     {% for i in popularuli_postebi %}
     <ul class="w3-ul w3-hoverable w3-white"><a type="button" href="{% url 'app:srulad' i.id %}">
@@ -83,28 +95,6 @@ and is wrapped around the whole page content, except for the footer in this exam
   </div>
   <hr> 
  <!---->
- <div style="height: 70px;">
-  <form action="/i18n/setlang/" method="POST" style="float: right; display: inline-block;">
-    {% csrf_token %}
-    <input name="next" type="hidden" value="{{ redirect_to }}" />
-    <select name="language" style="height: 30px; width: 150px;" >
-      {% get_current_language as LANGUAGE_CODE %}
-      {% get_available_languages as LANGUAGES %}
-      {% get_language_info_list for LANGUAGES as languages %}
-      {% for language in languages %}
-      <option value="{{ language.code }}" 
-          {% if language.code == LANGUAGE_CODE %} 
-            selected="selected" 
-          {% endif %} >
-        {{ language.name_local }} ({{ language.code }})
-      </option>
-      {% endfor %}
-    </select>
-    <input style="height: 30px; margin-bottom: 20px;"  type="submit" value="{% trans 'Switch language' %}" />
-  </form>
-</div>
-
-
   <!-- Labels / tags -->
   <div class="w3-card-2 w3-margin">
     <div class="w3-container w3-padding">
@@ -134,22 +124,22 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="pagination">
       <span class="step-links">
           {% if contacts.has_previous %}
-              <a class="w3-btn w3-padding-large w3-margin-bottom" href="?page={{ contacts.previous_page_number }}">წინ </a>
+              <a class="w3-btn w3-padding-large w3-margin-bottom" href="?page={{ contacts.previous_page_number }}">{% trans "წინ" %}</a>
           {% endif %}
 
           <span class="current">
-              გვერდი: {{ contacts.number }} / {{ contacts.paginator.num_pages }} .
+              {% trans "გვერდი" %}: {{ contacts.number }} / {{ contacts.paginator.num_pages }} .
           </span>
 
           {% if contacts.has_next %}
-              <a class="w3-btn w3-padding-large w3-margin-bottom" href="?page={{ contacts.next_page_number }}">შემდეგი »</a>
+              <a class="w3-btn w3-padding-large w3-margin-bottom" href="?page={{ contacts.next_page_number }}">{% trans "შემდეგი" %}»</a>
           {% endif %}
       </span>
   </div>
   <!-- <button class="w3-btn w3-disabled w3-padding-large w3-margin-bottom">წინ </button> -->
 <!--   <button class="w3-btn w3-padding-large w3-margin-bottom">წინ </button>
   <button class="w3-btn w3-padding-large w3-margin-bottom">შემდეგი »</button> -->
-  <p>Powered by <a href="https://www.facebook.com/tsotnesharvadze" target="_blank">ts.sharvadze</a></p>
+  <p>{% trans "შექმნიალია  :" %}<a href="https://www.facebook.com/tsotnesharvadze" target="_blank">ts.sharvadze</a>{% trans "-ის მიერ" %}</p>
 
 </footer>
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-12 14:03+0000\n"
+"POT-Creation-Date: 2016-12-13 18:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,9 +43,9 @@ msgstr "posts"
 
 #: app/models.py:25
 msgid "პოსტი"
-msgstr "post"
+msgstr "posti"
 
-#: app/models.py:31
+#: app/models.py:31 templates/app/new.html:47
 msgid "კომენტარები"
 msgstr "comments"
 
@@ -56,3 +56,58 @@ msgstr "ინგლისური"
 #: blogi/settings.py:125
 msgid "Georgian"
 msgstr "ქართული"
+
+#: templates/app/new.html:5
+msgid "ბლოგი"
+msgstr "blog"
+
+#: templates/app/new.html:23 templates/app/new.html:76
+msgid "ცოტნე შარვაძე"
+msgstr "tsotne sharvadze"
+
+#: templates/app/new.html:37
+msgid "განთავსების დრო"
+msgstr "pub date"
+
+#: templates/app/new.html:44
+msgid "სრულად"
+msgstr "fully"
+
+#: templates/app/new.html:77
+msgid ""
+"მე ვარ ცოტნე შარვაძე დავბადე 1997 წლის 23 მარტს,თბილისში.პროფესიით ვარ "
+"პროგრამისტი , ამიტომაც მიწევს ბლგის შექმნა თორე ჩემით ამას არ ვიზავდი , ნუ "
+"არც მაძალებენ , მომწონს კიდეც .ამდენი იმიტომ ვიბოდიალე რომ დიდი ტექსტი "
+"მჭირდებოდა .. "
+msgstr ""
+"I am the Son of Sharvadze davbade 1997 March 23, tbilisshi.propesiit'm a "
+"programmer, so I have to create or my blgis vizavdi does not, nor do "
+"madzaleben, because so many like it that much of the text that I needed "
+"vibodiale"
+
+#: templates/app/new.html:84
+msgid "პოპულარული პოსტები"
+msgstr "Popular Posts"
+
+#: templates/app/new.html:128
+msgid "წინ"
+msgstr "previous"
+
+#: templates/app/new.html:132
+msgid "გვერდი"
+msgstr "page"
+
+#: templates/app/new.html:136
+msgid "შემდეგი"
+msgstr "next"
+
+#: templates/app/new.html:143
+msgid "შექმნიალია  :"
+msgstr "developer : "
+
+#: templates/app/new.html:143
+msgid "-ის მიერ"
+msgstr ""
+
+#~ msgid "Switch language"
+#~ msgstr "ენის შეცვლა"
