@@ -1,6 +1,8 @@
+
+{% load i18n %}
 <!DOCTYPE html>
 <html>
-<title>ბლოგი</title>
+<title>{% trans ბლოგი %}</title>
 {% load static %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{% static 'css/new.css' %}">
@@ -80,7 +82,29 @@ and is wrapped around the whole page content, except for the footer in this exam
     {% endfor %}
   </div>
   <hr> 
- 
+ <!---->
+ <div style="height: 70px;">
+  <form action="/i18n/setlang/" method="POST" style="float: right; display: inline-block;">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}" />
+    <select name="language" style="height: 30px; width: 150px;" >
+      {% get_current_language as LANGUAGE_CODE %}
+      {% get_available_languages as LANGUAGES %}
+      {% get_language_info_list for LANGUAGES as languages %}
+      {% for language in languages %}
+      <option value="{{ language.code }}" 
+          {% if language.code == LANGUAGE_CODE %} 
+            selected="selected" 
+          {% endif %} >
+        {{ language.name_local }} ({{ language.code }})
+      </option>
+      {% endfor %}
+    </select>
+    <input style="height: 30px; margin-bottom: 20px;"  type="submit" value="{% trans 'Switch language' %}" />
+  </form>
+</div>
+
+
   <!-- Labels / tags -->
   <div class="w3-card-2 w3-margin">
     <div class="w3-container w3-padding">
