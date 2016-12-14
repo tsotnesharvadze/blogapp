@@ -1,4 +1,4 @@
-python3 manage.py makemessages -l ka
+python3 manage.py makemessages -l en
 
 # in *.po file:
 	# before:

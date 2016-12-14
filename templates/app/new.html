@@ -22,19 +22,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <h1><b>MY BLOG</b></h1>
   <p>Welcome to the blog of <span class="w3-tag">{% trans "ცოტნე შარვაძე" %}</span></p>
 </header>
-      <div style="height: 70px;">
-        <form action="/i18n/setlang/" method="POST" style="float: right; display: inline-block;">
-            {% csrf_token %}
-          <div>
-            <li style="text-decoration: none;list-style: none;">
-              <button id="geo" type="submit" value="ka"  name="language" > </button>
-            </li>
-            <li style="text-decoration: none;list-style: none;">
-              <button id="eng" type="submit" value="en"  name="language" ></button>
-            </li>
-          </div>
-        </form>
-      </div>
+{% include "app/lang_change.html" %}
 <!-- Grid -->
 <div class="w3-row">
 
