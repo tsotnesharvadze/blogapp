@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/new.css' %}">
-<!-- <style>
-body {background-color: powderblue;}
-h1   {color: blue;}
-p    {color: red;}
-</style> -->
-</head>
-<body style="background-color: rgb(191, 191, 191);">
+{% extends "app/base.html" %}
+
+
+
+{% block srulad  %}
+{% load i18n %}
 {% include "app/lang_change.html" %}
 	<p style="text-align: center;" >{{posti.postis_satauri}}</p>
 	<img src="{{posti.surati.url}}" alt="some_text" style="width: 1000px; height: 400px; margin: auto; display: block; border-radius: 10px;">
@@ -25,10 +19,6 @@ p    {color: red;}
  <form action="" method="POST">
  {% csrf_token %}
  	{{ form.as_p}}
-	<!-- <label for="new_comment">ახალი კომენტარი :</label>
-	<input id="new_comment" type="text" name="new_comment" maxlength="100" value ="{{ form.komentari}}"required /> -->
-	<input type="submit" value= 'OK'>
+	<input type="submit" value='OK'">
 </form>
-	
-</body>
-</html>
+	{% endblock srulad %}

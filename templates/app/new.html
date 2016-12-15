@@ -1,16 +1,9 @@
-
+{% extends "app/base.html" %}
 {% load i18n %}
-<!DOCTYPE html>
-<html>
-<title>{% trans "ბლოგი" %}</title>
-{% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'css/new.css' %}">
+  {% load staticfiles %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'css/new.css' %}" /> -->
+{% block index %}
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-</style>
 <body class="w3-light-grey">
 
 <!-- w3-content defines a container for fixed size centered content, 
@@ -132,4 +125,5 @@ and is wrapped around the whole page content, except for the footer in this exam
 </footer>
 
 </body>
-</html>
+{% endblock index %}
+
