@@ -22,7 +22,7 @@ class Post(models.Model):
 		verbose_name_plural=_("პოსტები")
 
 class Comment(models.Model):
-	posti=models.ForeignKey(Post,on_delete=models.CASCADE,verbose_name=_("პოსტი"))
+	posti=models.ForeignKey(Post,on_delete=models.CASCADE,verbose_name=_("პოსტი"),null=True)
 	komentari=models.CharField(verbose_name="კომენტარი",max_length=200)
 	def __str__(self):
 		return self.komentari

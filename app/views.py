@@ -33,11 +33,20 @@ def index(request):
 
 
 def srulad(request,posti_id):
-	form=CommentForm()
 	posti_srulad=Post.objects.get(pk=posti_id)
-	if request.method=="POST":
-		posti_srulad.comment_set.create(
-			komentari=request.POST.get("new_comment"))
+	form=CommentForm()
+	if request.method =="POST":
+		form = CommentForm(request.POST)
+		if form.is_valid():
+			print(request.POST)
+			print("savestana")
+			instance=form.save(commit=False)
+			instance.post = Post.objects.get(pk=posti_id)
+			print(instance)
+			instance.save()
+			
+		
+		
 	return render(request,'app/srulad.html',{"posti":posti_srulad,"form":form})
 
 
