@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post 
-from .forms import CommentForm
+from .models import Post ,Comment
+from .forms import CommentForm ,PostForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
@@ -9,7 +9,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def index(request):
 	
 	def my_sort(a):
-		return a.comment_set.count()
+		return a.comment.count()
 	postebis_sia=Post.objects.all()
 	popularuli_postebi=[i for i in postebis_sia]
 	popularuli_postebi.sort(key=my_sort,reverse=True)
@@ -34,15 +34,24 @@ def index(request):
 
 def srulad(request,posti_id):
 	posti_srulad=Post.objects.get(pk=posti_id)
-	form=CommentForm(request.POST or None)
+	form=CommentForm()
 	if request.method =="POST":
-		print(request.POST)
-		print("savestana")
-		instance=form.save(commit=False)
-		print(instance)
-		instance.save()
+		form=CommentForm(request.POST)
+		if form.is_valid():
+			a=form.save()
+			
+			posti_srulad.comment.add(a)
+
 		
 		
 	return render(request,'app/srulad.html',{"posti":posti_srulad,"form":form})
 
-
+def damateba(request):
+	form=PostForm()
+	if request.method=="POST":
+		form=PostForm(request.POST ,request.FILES)
+		if form.is_valid():
+			print("sworedaaa shevsilii")
+			form.save()
+			print("daaseiva")
+	return render(request,'app/damateba.html',{"form":form})

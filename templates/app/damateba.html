@@ -1,0 +1,14 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% trans "პოსტის დამატება" %}</title>
+</head>
+<body>
+ <form action="" method="POST">
+ {% csrf_token %}
+ 	{{ form.as_p}}
+
+	<input type="submit" value= "{% trans 'დამატება' %}">
+</body>
+</html>

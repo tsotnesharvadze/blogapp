@@ -1,17 +1,24 @@
-from django.shortcuts import render
-from .models import User
-from .forms import SingUpForm
+from django.shortcuts import render ,redirect
+from django.contrib.auth import authenticate,login
+from .forms import UserForm
 # Create your views here.
 def index(request):
-	form1=SingUpForm()
+	form1=UserForm()
 	if request.method=="POST":
-		try:
-			q=User(
-				saxeli=request.POST.get("user_saxeli"),
-				gvari=request.POST.get("user_gvari"),
-				email=request.POST.get("user_email"),
-				password=request.POST.get("user_password"))
-			q.save()
-		except:
-			pass
-	return render(request,"sing/sing_in.html",{"form1":form1})
+		form=UserForm(request.POST)
+		if form.is_valid():
+			user=form.save(commit=False)
+			username=form.cleane_date['username']
+			password=form.cleane_date['password']
+			user.set_password(password)
+			user.save()
+
+
+			user=authenticate(username=username,password=password)
+
+			if user is not None:
+				if user.is_active:
+					login(request,user)
+					return redirect("app:index")
+
+	return render(request,"sing/sing.html",{"form":form})

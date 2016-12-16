@@ -17,12 +17,12 @@ p    {color: red;}
 	<p style="text-align: center; line-height: 2.5em; display: block; margin: auto; width: 1024px;">{{posti.postis_contenti}}</p>
 
 	<p style="display: block; padding-left: 18%; color: rgb(34, 34, 34);">{{posti.sheqmnis_dro}}</p>
-	{% for i in posti.comment_set.all %}
+	{% for i in posti.comment.all %}
 		<p style="padding-left: 6%;">{{i}}</p>
 	{% endfor %} 
 
 
- <form action="" method="POST">
+ <form action="" method="POST" enctype="multipart/form-data">
  {% csrf_token %}
  	{{ form.as_p}}
 	<!-- <label for="new_comment">ახალი კომენტარი :</label>

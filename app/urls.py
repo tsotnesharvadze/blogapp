@@ -10,7 +10,7 @@ url(r'^$',index,name="index"),
 
 #url(r'^(?P<posti_id>[0-9]+)/$',posti,name="posti"),
 url(r'^(?P<posti_id>[0-9]+)/srulad/$',srulad,name="srulad"),
-
+url(r'^damateba/',damateba,name="damateba"),
 
 
 
