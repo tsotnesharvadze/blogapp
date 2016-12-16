@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-14 08:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/forms.py:5
+#, fuzzy
+#| msgid "კომენტარები"
+msgid "კომენტარი "
+msgstr "comment"
+
+#: app/models.py:6
+msgid "სათაური"
+msgstr "title"
+
+#: app/models.py:7
+msgid "კონტენტი"
+msgstr "content"
+
+#: app/models.py:8
+msgid "შექმნის დრო"
+msgstr "pub date"
+
+#: app/models.py:9
+msgid "სურათი"
+msgstr "image"
+
+#: app/models.py:10
+msgid "განახლების დრო"
+msgstr "refresh time"
+
+#: app/models.py:22
+msgid "პოსტები"
+msgstr "posts"
+
+#: app/models.py:25
+msgid "პოსტი"
+msgstr "posti"
+
+#: app/models.py:31 templates/app/new.html:47
+msgid "კომენტარები"
+msgstr "comments"
+
+#: blogi/settings.py:124
+msgid "English"
+msgstr "ინგლისური"
+
+#: blogi/settings.py:125
+msgid "Georgian"
+msgstr "ქართული"
+
+#: templates/app/new.html:5
+msgid "ბლოგი"
+msgstr "blog"
+
+#: templates/app/new.html:23 templates/app/new.html:63
+msgid "ცოტნე შარვაძე"
+msgstr "tsotne sharvadze"
+
+#: templates/app/new.html:37
+msgid "განთავსების დრო"
+msgstr "pub date"
+
+#: templates/app/new.html:44
+msgid "სრულად"
+msgstr "fully"
+
+#: templates/app/new.html:64
+msgid ""
+"მე ვარ ცოტნე შარვაძე დავბადე 1997 წლის 23 მარტს,თბილისში.პროფესიით ვარ "
+"პროგრამისტი , ამიტომაც მიწევს ბლგის შექმნა თორე ჩემით ამას არ ვიზავდი , ნუ "
+"არც მაძალებენ , მომწონს კიდეც .ამდენი იმიტომ ვიბოდიალე რომ დიდი ტექსტი "
+"მჭირდებოდა .. "
+msgstr ""
+"I am the Son of Sharvadze davbade 1997 March 23, tbilisshi.propesiit'm a "
+"programmer, so I have to create or my blgis vizavdi does not, nor do "
+"madzaleben, because so many like it that much of the text that I needed "
+"vibodiale"
+
+#: templates/app/new.html:71
+msgid "პოპულარული პოსტები"
+msgstr "Popular Posts"
+
+#: templates/app/new.html:115
+msgid "წინ"
+msgstr "previous"
+
+#: templates/app/new.html:119
+msgid "გვერდი"
+msgstr "page"
+
+#: templates/app/new.html:123
+msgid "შემდეგი"
+msgstr "next"
+
+#: templates/app/new.html:130
+msgid "შექმნიალია  :"
+msgstr "developer : "
+
+#: templates/app/new.html:130
+msgid "-ის მიერ"
+msgstr ""
+
+#: templates/app/srulad.html:30
+msgid "OK"
+msgstr "დამატება"
+
+#~ msgid "Switch language"
+#~ msgstr "ენის შეცვლა"
