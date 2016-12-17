@@ -1,0 +1,13 @@
+{% extends "sing/base.html" %}
+
+{% block sing_up %}
+<form  action="" method="POST">{% csrf_token %}
+	{{form.as_p}}
+
+<button type="submit" class="button button-block"/>დარეგისტრირება</button>
+
+</form>
+
+
+
+{% endblock sing_up %}

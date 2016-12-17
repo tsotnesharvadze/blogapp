@@ -176,3 +176,11 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+#id_username,#id_email,#id_password{
+  position: relative;
+  margin-bottom: 40px;
+  margin: 2px;
+  color: #1ab188;
+}
+
+

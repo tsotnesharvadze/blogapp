@@ -18,7 +18,7 @@ class Post(models.Model):
 	surati=models.ImageField(verbose_name=_("სურათი"),upload_to='app')
 	ganaxlebis_dro=models.DateTimeField(verbose_name=_('განახლების დრო'),auto_now_add=True, blank=True)
 	comment= models.ManyToManyField(Comment,verbose_name=_("კომენტარი"))
-
+	
 	def get_medium_desc(self):
 		return self.postis_contenti[:300]+" . . ."
 

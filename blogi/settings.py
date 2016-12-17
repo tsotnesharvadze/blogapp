@@ -26,8 +26,12 @@ SECRET_KEY = '!k$a9tkczy1@_m8#s%lygx7wchlgza_dfxr0c43n!_khv_ov$q'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST_USER ='tsotne.blog@gmail.com'
+EMAIL_HOST_PASSWORD='stajiori'
+EMAIL_PORT=587
+EMAIL_USER_TLS=True
 # Application definition
 
 INSTALLED_APPS = [
