@@ -368,9 +368,59 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 }
 #log_out{
 	float: right;
+	border: 0;
+outline: none;
+border-radius: 199px;
+padding: -2px;
+font-size: 1rem;
+font-weight: 541px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+background: #b11a1a;
+-webkit-transition: all 0.5s ease;
+transition: all 0.5s ease;
+-webkit-appearance: none;
+
+}
+#log_in{
+		float: right;
+
+border: 0;
+outline: none;
+border-radius: 199px;
+padding: -2px;
+font-size: 1rem;
+font-weight: 541px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+background: #1ab12c;
+-webkit-transition: all 0.5s ease;
+transition: all 0.5s ease;
+-webkit-appearance: none;
+}
+
+
+
+#person{
+	float: right;
 	display:block;
 	clear:both;
 }
-#person{
-	float: right;
+
+#damateba{
+		float: left;
+	display:block;
+	clear:both;
+	border: 0;
+outline: none;
+border-radius: 199px;
+padding: -2px;
+font-size: 1rem;
+font-weight: 541px;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+background: #1ab12c;
+-webkit-transition: all 0.5s ease;
+transition: all 0.5s ease;
+-webkit-appearance: none;
 }

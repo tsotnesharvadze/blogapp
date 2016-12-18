@@ -1,12 +1,13 @@
 from django.shortcuts import render ,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponse
-from .forms import UserInForm,UserUpForm
+from .forms import UserInForm,UserUpForm,New_passwordForm
 from .util import get_code,get_id
 from django.core.mail import send_mail
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.auth.models import User
+from django.views import View
 # Create your views here.
 def create_account(request):
 	form=UserUpForm()
@@ -81,3 +82,29 @@ def activate(request,user_code):
 		return redirect("app:index")
 
 	return HttpResponse("sheni imeili ver gaaqtiurda :{}".format(user_code))
+
+
+class new_password(View):
+	def post(self,request,*args,**kwargs):
+		form=New_passwordForm(request.POST)
+		if form.is_valid():
+			password=form.cleaned_data['password']
+			confpassword=form.cleaned_data['confpassword']
+			if password==confpassword:
+
+				user=request.user
+				if user.is_active:
+					user.set_password(password)
+					user.save()
+				else:
+					return HttpResponse("პაროლი წარმატებით შეიცვალა")
+			
+		return HttpResponse("გთხოვთ სწორად შეავსოთ ველები .. ")
+
+	def get(self,request,*args,**kwargs):
+		form=New_passwordForm()
+		context={
+		"form":form,
+		"user":request.user
+		}
+		return render(request,"sing/new_password.html",context)

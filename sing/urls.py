@@ -10,7 +10,7 @@ urlpatterns=[
  url(r'^create_account/$',create_account,name="create_account"),
  url(r'^log_out/$',log_out,name="log_out"),
  url(r'^activate/(?P<user_code>[0-9]+)/$',activate,name="activate"),
-
+ url(r'^new_password/$',new_password.as_view(),name="new_password"),
 # url(r'^(?P<posti_id>[0-9]+)/$',posti,name="posti"),
 # url(r'^(?P<posti_id>[0-9]+)/srulad/$',srulad,name="srulad"),
 

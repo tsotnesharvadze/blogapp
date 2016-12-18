@@ -25,6 +25,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   {% include "app/lang_change.html" %}
 {% include "app/log_out.html" %}
 {% include "app/welcome_person.html" %}
+{% include "app/postis_damateba.html" %}
 </header>
 
 
@@ -76,7 +77,7 @@ and is wrapped around the whole page content, except for the footer in this exam
       <h4>{% trans "პოპულარული პოსტები" %}:</h4>
     </div>
     {% for i in popularuli_postebi %}
-    <ul class="w3-ul w3-hoverable w3-white"><a type="button" href="{% url 'app:srulad' i.id %}">
+    <ul class="w3-ul w3-hoverable w3-white"><a  href="{% url 'app:srulad' i.id %}">
       <li class="w3-padding-16">
         <img src="{{i.surati.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px;height: 50px">
         <span class="w3-large">{{i.postis_satauri}}</span><br>

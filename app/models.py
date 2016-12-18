@@ -23,7 +23,7 @@ class Post(models.Model):
 		return self.postis_contenti[:300]+" . . ."
 
 	def get_short_desc(self):
-		return self.postis_contenti[:10]+" . . ."
+		return self.postis_contenti[:20]+" . . ."
 
 	def __str__(self):
 		return self.postis_satauri

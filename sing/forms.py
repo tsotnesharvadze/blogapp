@@ -18,3 +18,13 @@ class UserInForm(forms.Form):
 
 	class Meta:
 		fields=['username','password']
+
+class New_passwordForm(forms.Form):
+	password=forms.CharField(widget=forms.PasswordInput(attrs={
+		'class':'pass',
+		}))
+	confpassword=forms.CharField(widget=forms.PasswordInput(attrs={
+		'class':'pass',
+		}))
+	class Meta:
+		fields=["password","confpassword"]

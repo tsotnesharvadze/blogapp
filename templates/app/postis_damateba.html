@@ -1,0 +1,6 @@
+{% load i18n %}
+{%if  user.is_staff%}
+<p id="damateba">
+	<a  href="{% url 'app:damateba' %}">{% trans 'პოსტის დამატეაბა' %}</a>
+</p>
+{% endif %}

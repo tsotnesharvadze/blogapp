@@ -7,6 +7,7 @@ from django.contrib.auth import logout
 
 # Create your views here.
 def index(request):
+
 	
 	def my_sort(a):
 		return a.comment.count()
@@ -48,12 +49,18 @@ def srulad(request,posti_id):
 			a=form.save()
 			
 			posti_srulad.comment.add(a)
-
+	context={
+			"posti":posti_srulad,
+			"form":form,
+			"user":request.user,
+			}
 		
 		
-	return render(request,'app/srulad.html',{"posti":posti_srulad,"form":form})
+	return render(request,'app/srulad.html',context)
 
 def damateba(request):
+	if not request.user.is_active:
+		return render(request,"app/msg_sing.html",{})	
 	form=PostForm()
 	if request.method=="POST":
 		form=PostForm(request.POST ,request.FILES)
@@ -63,3 +70,6 @@ def damateba(request):
 			return redirect("app:srulad",post.id)
 	return render(request,'app/damateba.html',{"form":form})
 
+
+
+		
