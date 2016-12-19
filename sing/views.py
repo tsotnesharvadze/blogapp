@@ -11,6 +11,7 @@ from django.views import View
 # Create your views here.
 def create_account(request):
 	form=UserUpForm()
+
 	if request.method=="POST":
 		form=UserUpForm(request.POST)
 		if form.is_valid():
@@ -28,7 +29,7 @@ def create_account(request):
 			# user=authenticate(username=username,password=password)
 			
 			code=get_code(user.id)
-			url="http://localhost:8000/activate/{}".format(str(code))
+			url="http://{}/activate/{}".format(request.META['HTTP_HOST'],str(code))
 
 			from_email = settings.EMAIL_HOST_USER
 			subject="email verification"

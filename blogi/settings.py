@@ -31,7 +31,7 @@ EMAIL_HOST='smtp.gmail.com'
 EMAIL_HOST_USER ='tsotne.blog@gmail.com'
 EMAIL_HOST_PASSWORD='stajiori'
 EMAIL_PORT=587
-EMAIL_USER_TLS=True
+EMAIL_USE_TLS=True
 # Application definition
 
 INSTALLED_APPS = [
