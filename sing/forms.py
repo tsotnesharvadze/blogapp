@@ -6,6 +6,10 @@ class UserUpForm(forms.ModelForm):
 	password=forms.CharField(widget=forms.PasswordInput(attrs={
 		'class':'pass',
 		}))
+	username=forms.CharField(widget=forms.TextInput(attrs={
+		'class':'pass',
+		'required':False,
+		}))
 	class Meta:
 		model=User
 		fields=['username','email','password']
