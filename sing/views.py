@@ -43,6 +43,8 @@ def create_account(request):
 			msg.attach_alternative(html_content, "text/html")
 			msg.send()
 
+			return render(request,"sing/msg_verification.html",{})
+
 			# if user is not None:
 			# 	if user.is_active:
 			# 		login(request,user)
